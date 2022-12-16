@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import Contact from './pages/Contact/Contact';
+import Header from './components/Home/Header/Header';
+import ToDoListRCC from "./pages/ToDoList/ToDoListRCC"
+import ToDoListRFC from "./pages/ToDoList/ToDoListRFC"
+import ToDoListRedux from './pages/ToDoList/ToDoListRedux';
+import ToDoListSaga from './pages/ToDoListSaga/ToDoListSaga';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route exact path='/Home' element={< Home />} />
+        <Route exact path='/About' element={< About />} />
+        <Route exact path='/Contact' element={< Contact />} />
+        <Route exact path='/todolistrcc' element={< ToDoListRCC />} />
+        <Route exact path='/todolistrfc' element={< ToDoListRFC />} />
+        <Route exact path='/todolistredux' element={< ToDoListRedux />} />
+        <Route exact path='/todolistreduxsaga' element={< ToDoListSaga />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
